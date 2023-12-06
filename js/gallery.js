@@ -42,46 +42,23 @@ function onClick(evt) {
     </div>`);
     instance.show();
 
-    // if (instance.visible()) {
-    //     console.log('Invisible');
-    //     addEventListener('keydown', onKey);
-    // }
-
-    // if (!instance.visible()) {
-    //     console.log('Visible');
-    //     removeEventListener('keydown', onKey, false);
-
-    // }
-
-    // if (instance.visible()) {
-    //     console.log('Not Visible');
-
-    // }
-    let isOpen = false;
     if (instance.visible()) {
-        isOpen = true;
+        console.log('Visible');
         addEventListener('keydown', onKey);
-    }
+    } else {
+        console.log('Invisible');
+        removeEventListener('keydown', onKey, false);
 
-    if (isOpen == false) {
-        removeEventListener('keydown', onKey);
     }
 
     function onKey(params) {
         if (params.code === "Escape") {
-            instance.close();
             console.log(params);
             console.log('Instance:', instance.visible());
             instance.close();
         }
     }
 
-    // if (!instance.visible()) {
-    //     console.log(params);
-    //     // return;
-    // }
-
-    // gallery.removeEventListener('keydown', onKey);
 
 
 
