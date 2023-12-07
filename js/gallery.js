@@ -13,7 +13,6 @@ const markup = images.map(({ preview, original, description }) =>
     </li>`
 );
 // console.log(markup);
-
 gallery.insertAdjacentHTML("beforeend", markup.join(""));
 
 gallery.addEventListener('click', onClick);
@@ -26,14 +25,11 @@ function onClick(evt) {
     }
     // console.log('Hello');
     // console.dir(target);
-
     const alt = target.dataset.source ?? target.closest(".gallery__image").dataset.source;
     const currentImg = images.find(({ original }) => original === alt);
-
     // console.log('Alt:', alt);
     // console.log('CurrentImg', currentImg);
     // console.log(currentImg.description);
-
     const instance = basicLightbox.create(
         `<div>
     <img class="gallery__images"
@@ -51,13 +47,4 @@ function onClick(evt) {
             instance.close();
         }
     }
-
-
-
-
-
-
-
-
-
 }
