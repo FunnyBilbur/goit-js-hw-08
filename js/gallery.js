@@ -39,22 +39,15 @@ function onClick(evt) {
     <img class="gallery__images"
     src="${currentImg.original}"
     alt="${currentImg.description}"/>
-    </div>`);
+    </div>`, {
+        onShow: () => { addEventListener('keydown', onKey); },
+        onClose: () => { removeEventListener('keydown', onKey); }
+    });
     instance.show();
-
-    if (instance.visible()) {
-        console.log('Visible');
-        addEventListener('keydown', onKey);
-    } else {
-        console.log('Invisible');
-        removeEventListener('keydown', onKey, false);
-
-    }
-
     function onKey(params) {
         if (params.code === "Escape") {
-            console.log(params);
-            console.log('Instance:', instance.visible());
+            // console.log(params);
+            // console.log('Instance:', instance.visible());
             instance.close();
         }
     }
